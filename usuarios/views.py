@@ -6,7 +6,7 @@ from django.contrib import auth, messages
 def login(request):
     form = LoginForms()
     
-    if request.POST.get('next', None) not in ('cadastro', 'login', 'logout', '', '/') and not request.user.is_authenticated:
+    if not request.user.is_authenticated and 'next' in request.GET:
         messages.error(request, 'Usuário não logado')
     
     if request.method == 'POST':

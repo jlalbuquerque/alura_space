@@ -90,8 +90,10 @@ class CadastroForms(forms.Form):
         if self.cleaned_data.get('senha_2') != self.cleaned_data.get('senha_2'):
             raise forms.ValidationError('As senhas não são iguais!')
         else:
-            return self.cleaned_data.get('senha_1')
+            return self.cleaned_data.get('senha_2')
     
     def clean_email(self):
         if User.objects.filter(email=self.cleaned_data.get('email')).exists():
             raise forms.ValidationError('O email já existe')
+        else:
+            return self.cleaned_data.get('email')
