@@ -1,5 +1,6 @@
 from django import forms
 from django.contrib.auth.models import User
+from captcha.fields import ReCaptchaField
 
 class LoginForms(forms.Form):
     nome_login = forms.CharField(
@@ -24,6 +25,8 @@ class LoginForms(forms.Form):
             }
         )
     )
+    
+    captcha = ReCaptchaField()
 
 class CadastroForms(forms.Form):
     nome_cadastro = forms.CharField(
@@ -73,6 +76,8 @@ class CadastroForms(forms.Form):
             }
         )
     )
+    
+    captcha = ReCaptchaField()
     
     def clean_nome_cadastro(self):
         nome = self.cleaned_data.get('nome_cadastro')

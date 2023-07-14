@@ -491,3 +491,8 @@ table {
     --bs-alert-border-color: #f5c2c7;
 }
 
+.alert-primary {
+    --bs-alert-color: #084298;
+    --bs-alert-bg: #cfe2ff;
+    --bs-alert-border-color: #b6d4fe;
+}

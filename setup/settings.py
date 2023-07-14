@@ -26,6 +26,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = str(os.getenv('SECRET_KEY'))
 
+
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
@@ -43,6 +44,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'galeria.apps.GaleriaConfig',
     'usuarios.apps.UsuariosConfig',
+    'captcha',
 ]
 
 MIDDLEWARE = [
@@ -148,3 +150,12 @@ MESSAGE_TAGS = {
     messages.ERROR: 'danger',
     messages.SUCCESS: 'success',
 }
+
+# recaptcha
+
+# SILENCED_SYSTEM_CHECKS = ['captcha.recaptcha_test_key_error']
+
+RECAPTCHA_PUBLIC_KEY = '6LcXmiAnAAAAAPC99lwdRnccSRAF2_BRTRVIP-MY'
+RECAPTCHA_PRIVATE_KEY = str(os.getenv('RECAPTCHA_PRIVATE_KEY'))
+
+RECAPTCHA_REQUIRED_SCORE = 0.85
