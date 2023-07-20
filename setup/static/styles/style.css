@@ -377,6 +377,7 @@ table {
     width: 100px;
     text-align: center;
     border: 2px solid transparent;
+    color: #FFF;
 }
 
 .tags__tag:hover {
